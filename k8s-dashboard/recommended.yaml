@@ -41,7 +41,7 @@ spec:
     - port: 443
       targetPort: 8443
       name: https
-    - port: 80
+    - port: 8080
       targetPort: 8080
       name: http
   selector:
@@ -200,14 +200,13 @@ spec:
             - containerPort: 8443
               protocol: TCP
               name: https
-            - containerPort: 80
+            - containerPort: 8080
               protocol: TCP
               name: http
           args:
             - --auto-generate-certificates
             - --namespace=default
             - --insecure-bind-address=0.0.0.0
-            - --insecure-port=80
             # Uncomment the following line to manually specify Kubernetes API server Host
             # If not specified, Dashboard will attempt to auto discover the API server and connect
             # to it. Uncomment only if the default does not work.
@@ -223,6 +222,10 @@ spec:
               scheme: HTTPS
               path: /
               port: 8443
+            httpGet:
+              schema: HTTP
+              path: /
+              port: 8080
             initialDelaySeconds: 30
             timeoutSeconds: 30
           securityContext:
