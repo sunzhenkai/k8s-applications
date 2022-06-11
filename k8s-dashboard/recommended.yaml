@@ -224,7 +224,7 @@ spec:
               path: /
               port: 8443
             httpGet:
-              schema: HTTP
+              scheme: HTTP
               path: /
               port: 8080
             initialDelaySeconds: 30
