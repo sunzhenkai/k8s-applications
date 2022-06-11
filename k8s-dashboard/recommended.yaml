@@ -40,10 +40,8 @@ spec:
   ports:
     - port: 443
       targetPort: 8443
-      name: https
     - port: 8080
       targetPort: 8080
-      name: http
   type: NodePort
   selector:
     k8s-app: kubernetes-dashboard
@@ -200,10 +198,8 @@ spec:
           ports:
             - containerPort: 8443
               protocol: TCP
-              name: https
             - containerPort: 8080
               protocol: TCP
-              name: http
           args:
             - --auto-generate-certificates
             - --namespace=default
