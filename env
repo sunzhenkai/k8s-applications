@@ -1,0 +1,2 @@
+alias k8s="kubectl --namespace=default"
+alias k8s-proxy="kubectl proxy --address=0.0.0.0 --accept-hosts='.*' --disable-filter=true --port=18081"
